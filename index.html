@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0d14" />
+    <title>NEON BLOCKS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">STACK. CLEAR. REPEAT.</p>
+          <h1>NEON<br /><span>BLOCKS</span></h1>
+        </div>
+        <div class="status-pill"><span></span> ONLINE</div>
+      </header>
+
+      <section class="game-layout" aria-label="テトリスゲーム">
+        <aside class="stats-panel panel">
+          <div class="stat">
+            <span class="label">SCORE</span>
+            <strong id="score">000000</strong>
+          </div>
+          <div class="stat-row">
+            <div class="stat">
+              <span class="label">LINES</span>
+              <strong id="lines">00</strong>
+            </div>
+            <div class="stat">
+              <span class="label">LEVEL</span>
+              <strong id="level">01</strong>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="controls-copy">
+            <span class="label">CONTROLS</span>
+            <p><kbd>←</kbd><kbd>→</kbd> MOVE</p>
+            <p><kbd>↑</kbd> ROTATE</p>
+            <p><kbd>↓</kbd> SOFT DROP</p>
+            <p><kbd>SPACE</kbd> HARD DROP</p>
+            <p><kbd>P</kbd> PAUSE</p>
+          </div>
+        </aside>
+
+        <div class="board-wrap">
+          <div class="board-frame">
+            <canvas id="board" width="300" height="600" aria-label="プレイフィールド"></canvas>
+            <div id="overlay" class="overlay">
+              <p id="overlay-kicker">READY?</p>
+              <h2 id="overlay-title">PRESS START</h2>
+              <button id="start-button" type="button">START GAME <span>↗</span></button>
+            </div>
+          </div>
+          <p class="board-caption"><span>10 × 20 GRID</span><span>ARCADE MODE</span></p>
+        </div>
+
+        <aside class="next-panel panel">
+          <span class="label">NEXT PIECE</span>
+          <div class="preview-box"><canvas id="next" width="120" height="120"></canvas></div>
+          <div class="divider"></div>
+          <div class="speed-row">
+            <span class="label">DROP SPEED</span>
+            <span id="speed">1.0×</span>
+          </div>
+          <div class="speed-track"><i id="speed-bar"></i></div>
+          <button id="sound-button" class="sound-button" type="button" aria-pressed="true">
+            <span id="sound-icon">◖</span> SOUND ON
+          </button>
+        </aside>
+      </section>
+
+      <nav class="mobile-controls" aria-label="タッチ操作">
+        <button data-action="left" aria-label="左へ移動">←</button>
+        <button data-action="rotate" aria-label="回転">↻</button>
+        <button data-action="right" aria-label="右へ移動">→</button>
+        <button data-action="down" aria-label="下へ移動">↓</button>
+        <button data-action="drop" aria-label="一番下へ落とす">DROP</button>
+      </nav>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
